@@ -38,14 +38,9 @@ class NotificationList(APIView):
 
 
     def post(self, request, format=None):
-        print("request data")
-        print(request.data)
         serializer = NotificationSerializer(data=request.data)
-
-
         if serializer.is_valid():
             serializer.create(validated_data=request.data)
-
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
@@ -79,16 +74,6 @@ class NotificationDetail(APIView):
         return Response(status=status.HTTP_204_NO_CONTENT)
 
 
-'''
-def noti(request):
-	n=Notification.objects.all()
-	for i in n:
-
-		pp = pprint.PrettyPrinter(indent=4)
-		pp.pprint(i.noti_date)
-	return HttpResponse(n)
-
-'''
 class UserNotificationList(APIView):
     """
     List all notifications, or create a new notification.
@@ -97,10 +82,6 @@ class UserNotificationList(APIView):
     def get(self, request, format=None):
         usernotifications=UserNotification.objects.all()
         usernotificationserializer=UserNotificationSerializer(usernotifications,many=True)
-    	#notifications = Notification.objects.all()
-    	#users=User.objects.all()
-    	#userializer=UserSerializer(users,many=True)
-        #serializer = NotificationSerializer(notifications, many=True)
         return Response(usernotificationserializer.data)
     
 
