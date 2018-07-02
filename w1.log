@@ -40,3 +40,402 @@ Traceback (most recent call last):
   File "/usr/lib/python2.7/socket.py", line 224, in meth
     return getattr(self._sock,name)(*args)
 error: [Errno 104] Connection reset by peer
+[2018-07-02 11:32:59,702: INFO/MainProcess] missed heartbeat from celery@LP-156
+[2018-07-02 11:33:16,921: INFO/MainProcess] sync with celery@LP-156
+[2018-07-02 11:39:16,558: ERROR/MainProcess] Received unregistered task of type None.
+The message has been ignored and discarded.
+
+Did you remember to import the module containing this task?
+Or maybe you're using relative imports?
+
+Please see
+http://docs.celeryq.org/en/latest/internals/protocol.html
+for more information.
+
+The full contents of the message body was:
+u'[[2, 6], {}, {"chord": null, "callbacks": null, "errbacks": null, "chain": null}]' (81b)
+Traceback (most recent call last):
+  File "/home/zopper/zopper-apps/zopper/local/lib/python2.7/site-packages/celery/worker/consumer/consumer.py", line 563, in on_task_received
+    strategy = strategies[type_]
+KeyError: None
+[2018-07-02 11:49:59,248: ERROR/MainProcess] Received unregistered task of type None.
+The message has been ignored and discarded.
+
+Did you remember to import the module containing this task?
+Or maybe you're using relative imports?
+
+Please see
+http://docs.celeryq.org/en/latest/internals/protocol.html
+for more information.
+
+The full contents of the message body was:
+u'[[2, 6], {}, {"chord": null, "callbacks": null, "errbacks": null, "chain": null}]' (81b)
+Traceback (most recent call last):
+  File "/home/zopper/zopper-apps/zopper/local/lib/python2.7/site-packages/celery/worker/consumer/consumer.py", line 563, in on_task_received
+    strategy = strategies[type_]
+KeyError: None
+[2018-07-02 11:51:50,925: ERROR/MainProcess] Received unregistered task of type None.
+The message has been ignored and discarded.
+
+Did you remember to import the module containing this task?
+Or maybe you're using relative imports?
+
+Please see
+http://docs.celeryq.org/en/latest/internals/protocol.html
+for more information.
+
+The full contents of the message body was:
+u'[[2, 6], {}, {"chord": null, "callbacks": null, "errbacks": null, "chain": null}]' (81b)
+Traceback (most recent call last):
+  File "/home/zopper/zopper-apps/zopper/local/lib/python2.7/site-packages/celery/worker/consumer/consumer.py", line 563, in on_task_received
+    strategy = strategies[type_]
+KeyError: None
+[2018-07-02 11:56:44,381: INFO/MainProcess] sync with celery@LP-156
+[2018-07-02 11:56:44,382: ERROR/MainProcess] Control command error: error(104, 'Connection reset by peer')
+Traceback (most recent call last):
+  File "/home/zopper/zopper-apps/zopper/local/lib/python2.7/site-packages/celery/worker/pidbox.py", line 46, in on_message
+    self.node.handle_message(body, message)
+  File "/home/zopper/zopper-apps/zopper/local/lib/python2.7/site-packages/kombu/pidbox.py", line 129, in handle_message
+    return self.dispatch(**body)
+  File "/home/zopper/zopper-apps/zopper/local/lib/python2.7/site-packages/kombu/pidbox.py", line 112, in dispatch
+    ticket=ticket)
+  File "/home/zopper/zopper-apps/zopper/local/lib/python2.7/site-packages/kombu/pidbox.py", line 135, in reply
+    serializer=self.mailbox.serializer)
+  File "/home/zopper/zopper-apps/zopper/local/lib/python2.7/site-packages/kombu/pidbox.py", line 265, in _publish_reply
+    **opts
+  File "/home/zopper/zopper-apps/zopper/local/lib/python2.7/site-packages/kombu/messaging.py", line 181, in publish
+    exchange_name, declare,
+  File "/home/zopper/zopper-apps/zopper/local/lib/python2.7/site-packages/kombu/messaging.py", line 203, in _publish
+    mandatory=mandatory, immediate=immediate,
+  File "/home/zopper/zopper-apps/zopper/local/lib/python2.7/site-packages/amqp/channel.py", line 1732, in _basic_publish
+    (0, exchange, routing_key, mandatory, immediate), msg
+  File "/home/zopper/zopper-apps/zopper/local/lib/python2.7/site-packages/amqp/abstract_channel.py", line 50, in send_method
+    conn.frame_writer(1, self.channel_id, sig, args, content)
+  File "/home/zopper/zopper-apps/zopper/local/lib/python2.7/site-packages/amqp/method_framing.py", line 166, in write_frame
+    write(view[:offset])
+  File "/home/zopper/zopper-apps/zopper/local/lib/python2.7/site-packages/amqp/transport.py", line 275, in write
+    self._write(s)
+  File "/usr/lib/python2.7/socket.py", line 224, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 104] Connection reset by peer
+[2018-07-02 11:57:27,226: ERROR/MainProcess] Received unregistered task of type None.
+The message has been ignored and discarded.
+
+Did you remember to import the module containing this task?
+Or maybe you're using relative imports?
+
+Please see
+http://docs.celeryq.org/en/latest/internals/protocol.html
+for more information.
+
+The full contents of the message body was:
+u'[[2, 6], {}, {"chord": null, "callbacks": null, "errbacks": null, "chain": null}]' (81b)
+Traceback (most recent call last):
+  File "/home/zopper/zopper-apps/zopper/local/lib/python2.7/site-packages/celery/worker/consumer/consumer.py", line 563, in on_task_received
+    strategy = strategies[type_]
+KeyError: None
+[2018-07-02 12:01:16,913: ERROR/MainProcess] Received unregistered task of type None.
+The message has been ignored and discarded.
+
+Did you remember to import the module containing this task?
+Or maybe you're using relative imports?
+
+Please see
+http://docs.celeryq.org/en/latest/internals/protocol.html
+for more information.
+
+The full contents of the message body was:
+u'[[2, 6], {}, {"chord": null, "callbacks": null, "errbacks": null, "chain": null}]' (81b)
+Traceback (most recent call last):
+  File "/home/zopper/zopper-apps/zopper/local/lib/python2.7/site-packages/celery/worker/consumer/consumer.py", line 563, in on_task_received
+    strategy = strategies[type_]
+KeyError: None
+[2018-07-02 12:15:32,356: ERROR/MainProcess] Received unregistered task of type None.
+The message has been ignored and discarded.
+
+Did you remember to import the module containing this task?
+Or maybe you're using relative imports?
+
+Please see
+http://docs.celeryq.org/en/latest/internals/protocol.html
+for more information.
+
+The full contents of the message body was:
+u'[[2, 6], {}, {"chord": null, "callbacks": null, "errbacks": null, "chain": null}]' (81b)
+Traceback (most recent call last):
+  File "/home/zopper/zopper-apps/zopper/local/lib/python2.7/site-packages/celery/worker/consumer/consumer.py", line 563, in on_task_received
+    strategy = strategies[type_]
+KeyError: None
+[2018-07-02 12:21:40,791: ERROR/MainProcess] Received unregistered task of type None.
+The message has been ignored and discarded.
+
+Did you remember to import the module containing this task?
+Or maybe you're using relative imports?
+
+Please see
+http://docs.celeryq.org/en/latest/internals/protocol.html
+for more information.
+
+The full contents of the message body was:
+u'[[2, 6], {}, {"chord": null, "callbacks": null, "errbacks": null, "chain": null}]' (81b)
+Traceback (most recent call last):
+  File "/home/zopper/zopper-apps/zopper/local/lib/python2.7/site-packages/celery/worker/consumer/consumer.py", line 563, in on_task_received
+    strategy = strategies[type_]
+KeyError: None
+[2018-07-02 12:21:53,723: ERROR/MainProcess] Received unregistered task of type None.
+The message has been ignored and discarded.
+
+Did you remember to import the module containing this task?
+Or maybe you're using relative imports?
+
+Please see
+http://docs.celeryq.org/en/latest/internals/protocol.html
+for more information.
+
+The full contents of the message body was:
+u'[[2, 6], {}, {"chord": null, "callbacks": null, "errbacks": null, "chain": null}]' (81b)
+Traceback (most recent call last):
+  File "/home/zopper/zopper-apps/zopper/local/lib/python2.7/site-packages/celery/worker/consumer/consumer.py", line 563, in on_task_received
+    strategy = strategies[type_]
+KeyError: None
+[2018-07-02 12:22:08,429: ERROR/MainProcess] Received unregistered task of type None.
+The message has been ignored and discarded.
+
+Did you remember to import the module containing this task?
+Or maybe you're using relative imports?
+
+Please see
+http://docs.celeryq.org/en/latest/internals/protocol.html
+for more information.
+
+The full contents of the message body was:
+u'[[2, 6], {}, {"chord": null, "callbacks": null, "errbacks": null, "chain": null}]' (81b)
+Traceback (most recent call last):
+  File "/home/zopper/zopper-apps/zopper/local/lib/python2.7/site-packages/celery/worker/consumer/consumer.py", line 563, in on_task_received
+    strategy = strategies[type_]
+KeyError: None
+[2018-07-02 12:22:23,710: ERROR/MainProcess] Received unregistered task of type None.
+The message has been ignored and discarded.
+
+Did you remember to import the module containing this task?
+Or maybe you're using relative imports?
+
+Please see
+http://docs.celeryq.org/en/latest/internals/protocol.html
+for more information.
+
+The full contents of the message body was:
+u'[[2, 6], {}, {"chord": null, "callbacks": null, "errbacks": null, "chain": null}]' (81b)
+Traceback (most recent call last):
+  File "/home/zopper/zopper-apps/zopper/local/lib/python2.7/site-packages/celery/worker/consumer/consumer.py", line 563, in on_task_received
+    strategy = strategies[type_]
+KeyError: None
+[2018-07-02 12:24:20,241: ERROR/MainProcess] Received unregistered task of type None.
+The message has been ignored and discarded.
+
+Did you remember to import the module containing this task?
+Or maybe you're using relative imports?
+
+Please see
+http://docs.celeryq.org/en/latest/internals/protocol.html
+for more information.
+
+The full contents of the message body was:
+u'[[2, 6], {}, {"chord": null, "callbacks": null, "errbacks": null, "chain": null}]' (81b)
+Traceback (most recent call last):
+  File "/home/zopper/zopper-apps/zopper/local/lib/python2.7/site-packages/celery/worker/consumer/consumer.py", line 563, in on_task_received
+    strategy = strategies[type_]
+KeyError: None
+[2018-07-02 12:24:31,313: ERROR/MainProcess] Received unregistered task of type None.
+The message has been ignored and discarded.
+
+Did you remember to import the module containing this task?
+Or maybe you're using relative imports?
+
+Please see
+http://docs.celeryq.org/en/latest/internals/protocol.html
+for more information.
+
+The full contents of the message body was:
+u'[[2, 6], {}, {"chord": null, "callbacks": null, "errbacks": null, "chain": null}]' (81b)
+Traceback (most recent call last):
+  File "/home/zopper/zopper-apps/zopper/local/lib/python2.7/site-packages/celery/worker/consumer/consumer.py", line 563, in on_task_received
+    strategy = strategies[type_]
+KeyError: None
+[2018-07-02 12:24:58,682: ERROR/MainProcess] Received unregistered task of type None.
+The message has been ignored and discarded.
+
+Did you remember to import the module containing this task?
+Or maybe you're using relative imports?
+
+Please see
+http://docs.celeryq.org/en/latest/internals/protocol.html
+for more information.
+
+The full contents of the message body was:
+u'[[2, 6], {}, {"chord": null, "callbacks": null, "errbacks": null, "chain": null}]' (81b)
+Traceback (most recent call last):
+  File "/home/zopper/zopper-apps/zopper/local/lib/python2.7/site-packages/celery/worker/consumer/consumer.py", line 563, in on_task_received
+    strategy = strategies[type_]
+KeyError: None
+[2018-07-02 12:25:25,997: ERROR/MainProcess] Received unregistered task of type None.
+The message has been ignored and discarded.
+
+Did you remember to import the module containing this task?
+Or maybe you're using relative imports?
+
+Please see
+http://docs.celeryq.org/en/latest/internals/protocol.html
+for more information.
+
+The full contents of the message body was:
+u'[[2, 6], {}, {"chord": null, "callbacks": null, "errbacks": null, "chain": null}]' (81b)
+Traceback (most recent call last):
+  File "/home/zopper/zopper-apps/zopper/local/lib/python2.7/site-packages/celery/worker/consumer/consumer.py", line 563, in on_task_received
+    strategy = strategies[type_]
+KeyError: None
+[2018-07-02 12:27:53,301: ERROR/MainProcess] Received unregistered task of type None.
+The message has been ignored and discarded.
+
+Did you remember to import the module containing this task?
+Or maybe you're using relative imports?
+
+Please see
+http://docs.celeryq.org/en/latest/internals/protocol.html
+for more information.
+
+The full contents of the message body was:
+u'[[2, 6], {}, {"chord": null, "callbacks": null, "errbacks": null, "chain": null}]' (81b)
+Traceback (most recent call last):
+  File "/home/zopper/zopper-apps/zopper/local/lib/python2.7/site-packages/celery/worker/consumer/consumer.py", line 563, in on_task_received
+    strategy = strategies[type_]
+KeyError: None
+[2018-07-02 12:32:47,020: ERROR/MainProcess] Received unregistered task of type None.
+The message has been ignored and discarded.
+
+Did you remember to import the module containing this task?
+Or maybe you're using relative imports?
+
+Please see
+http://docs.celeryq.org/en/latest/internals/protocol.html
+for more information.
+
+The full contents of the message body was:
+u'[[2, 6], {}, {"chord": null, "callbacks": null, "errbacks": null, "chain": null}]' (81b)
+Traceback (most recent call last):
+  File "/home/zopper/zopper-apps/zopper/local/lib/python2.7/site-packages/celery/worker/consumer/consumer.py", line 563, in on_task_received
+    strategy = strategies[type_]
+KeyError: None
+[2018-07-02 12:35:55,510: ERROR/MainProcess] Received unregistered task of type None.
+The message has been ignored and discarded.
+
+Did you remember to import the module containing this task?
+Or maybe you're using relative imports?
+
+Please see
+http://docs.celeryq.org/en/latest/internals/protocol.html
+for more information.
+
+The full contents of the message body was:
+u'[[2, 6], {}, {"chord": null, "callbacks": null, "errbacks": null, "chain": null}]' (81b)
+Traceback (most recent call last):
+  File "/home/zopper/zopper-apps/zopper/local/lib/python2.7/site-packages/celery/worker/consumer/consumer.py", line 563, in on_task_received
+    strategy = strategies[type_]
+KeyError: None
+[2018-07-02 12:36:12,877: ERROR/MainProcess] Received unregistered task of type None.
+The message has been ignored and discarded.
+
+Did you remember to import the module containing this task?
+Or maybe you're using relative imports?
+
+Please see
+http://docs.celeryq.org/en/latest/internals/protocol.html
+for more information.
+
+The full contents of the message body was:
+u'[[2, 6], {}, {"chord": null, "callbacks": null, "errbacks": null, "chain": null}]' (81b)
+Traceback (most recent call last):
+  File "/home/zopper/zopper-apps/zopper/local/lib/python2.7/site-packages/celery/worker/consumer/consumer.py", line 563, in on_task_received
+    strategy = strategies[type_]
+KeyError: None
+[2018-07-02 12:36:37,929: ERROR/MainProcess] Received unregistered task of type None.
+The message has been ignored and discarded.
+
+Did you remember to import the module containing this task?
+Or maybe you're using relative imports?
+
+Please see
+http://docs.celeryq.org/en/latest/internals/protocol.html
+for more information.
+
+The full contents of the message body was:
+u'[[2, 6], {}, {"chord": null, "callbacks": null, "errbacks": null, "chain": null}]' (81b)
+Traceback (most recent call last):
+  File "/home/zopper/zopper-apps/zopper/local/lib/python2.7/site-packages/celery/worker/consumer/consumer.py", line 563, in on_task_received
+    strategy = strategies[type_]
+KeyError: None
+[2018-07-02 12:37:16,414: ERROR/MainProcess] Received unregistered task of type None.
+The message has been ignored and discarded.
+
+Did you remember to import the module containing this task?
+Or maybe you're using relative imports?
+
+Please see
+http://docs.celeryq.org/en/latest/internals/protocol.html
+for more information.
+
+The full contents of the message body was:
+u'[[2, 6], {}, {"chord": null, "callbacks": null, "errbacks": null, "chain": null}]' (81b)
+Traceback (most recent call last):
+  File "/home/zopper/zopper-apps/zopper/local/lib/python2.7/site-packages/celery/worker/consumer/consumer.py", line 563, in on_task_received
+    strategy = strategies[type_]
+KeyError: None
+[2018-07-02 12:38:33,247: ERROR/MainProcess] Received unregistered task of type None.
+The message has been ignored and discarded.
+
+Did you remember to import the module containing this task?
+Or maybe you're using relative imports?
+
+Please see
+http://docs.celeryq.org/en/latest/internals/protocol.html
+for more information.
+
+The full contents of the message body was:
+u'[[2, 6], {}, {"chord": null, "callbacks": null, "errbacks": null, "chain": null}]' (81b)
+Traceback (most recent call last):
+  File "/home/zopper/zopper-apps/zopper/local/lib/python2.7/site-packages/celery/worker/consumer/consumer.py", line 563, in on_task_received
+    strategy = strategies[type_]
+KeyError: None
+[2018-07-02 13:08:04,111: ERROR/MainProcess] Received unregistered task of type 'notification.tasks.NotificationScheduler'.
+The message has been ignored and discarded.
+
+Did you remember to import the module containing this task?
+Or maybe you're using relative imports?
+
+Please see
+http://docs.celeryq.org/en/latest/internals/protocol.html
+for more information.
+
+The full contents of the message body was:
+u'[[2, 6], {}, {"chord": null, "callbacks": null, "errbacks": null, "chain": null}]' (81b)
+Traceback (most recent call last):
+  File "/home/zopper/zopper-apps/zopper/local/lib/python2.7/site-packages/celery/worker/consumer/consumer.py", line 563, in on_task_received
+    strategy = strategies[type_]
+KeyError: 'notification.tasks.NotificationScheduler'
+[2018-07-02 13:09:45,030: INFO/MainProcess] sync with celery@LP-156
+[2018-07-02 13:09:51,610: ERROR/MainProcess] Received unregistered task of type 'notification.tasks.NotificationScheduler'.
+The message has been ignored and discarded.
+
+Did you remember to import the module containing this task?
+Or maybe you're using relative imports?
+
+Please see
+http://docs.celeryq.org/en/latest/internals/protocol.html
+for more information.
+
+The full contents of the message body was:
+u'[[2, 6], {}, {"chord": null, "callbacks": null, "errbacks": null, "chain": null}]' (81b)
+Traceback (most recent call last):
+  File "/home/zopper/zopper-apps/zopper/local/lib/python2.7/site-packages/celery/worker/consumer/consumer.py", line 563, in on_task_received
+    strategy = strategies[type_]
+KeyError: 'notification.tasks.NotificationScheduler'
