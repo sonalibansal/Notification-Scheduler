@@ -1,17 +1,15 @@
-'''
 from __future__ import absolute_import, unicode_literals
-from celery import app_task
-
+from celery import shared_task
+import datetime
+from notification.models import Notification,UserNotification
+from django.contrib.auth.models import User
+import smtplib
 import os
 import django
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'assignment.settings')
 django.setup()
 
-import datetime
-from notification.models import Notification,UserNotification
-from django.contrib.auth.models import User
-import smtplib
-
+@shared_task()
 
 class NotificationScheduler:
 
@@ -55,7 +53,7 @@ class NotificationScheduler:
             print "no notifications pending"
 
 
-
+@shared_task()
 class SendEmail(NotificationScheduler):
 
     def __init__(self):
@@ -73,8 +71,3 @@ class SendEmail(NotificationScheduler):
 
             return 'failed'
 
-'''
-
-from .tasks import SendEmail
-object=SendEmail()
-object.notification_status.delay(2,6)

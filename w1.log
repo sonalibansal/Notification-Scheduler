@@ -1,0 +1,42 @@
+[2018-07-02 10:33:27,989: INFO/MainProcess] Connected to amqp://guest:**@127.0.0.1:5672//
+[2018-07-02 10:33:27,996: INFO/MainProcess] mingle: searching for neighbors
+[2018-07-02 10:33:29,015: INFO/MainProcess] mingle: all alone
+[2018-07-02 10:33:29,080: WARNING/MainProcess] /home/zopper/zopper-apps/zopper/local/lib/python2.7/site-packages/celery/fixups/django.py:200: UserWarning: Using settings.DEBUG leads to a memory leak, never use this setting in production environments!
+  warnings.warn('Using settings.DEBUG leads to a memory leak, never '
+[2018-07-02 10:33:29,081: INFO/MainProcess] w1@LP-156 ready.
+[2018-07-02 10:41:20,970: INFO/MainProcess] sync with celery@LP-156
+[2018-07-02 10:41:20,971: ERROR/MainProcess] Control command error: error(104, 'Connection reset by peer')
+Traceback (most recent call last):
+  File "/home/zopper/zopper-apps/zopper/local/lib/python2.7/site-packages/celery/worker/pidbox.py", line 46, in on_message
+    self.node.handle_message(body, message)
+  File "/home/zopper/zopper-apps/zopper/local/lib/python2.7/site-packages/kombu/pidbox.py", line 129, in handle_message
+    return self.dispatch(**body)
+  File "/home/zopper/zopper-apps/zopper/local/lib/python2.7/site-packages/kombu/pidbox.py", line 112, in dispatch
+    ticket=ticket)
+  File "/home/zopper/zopper-apps/zopper/local/lib/python2.7/site-packages/kombu/pidbox.py", line 135, in reply
+    serializer=self.mailbox.serializer)
+  File "/home/zopper/zopper-apps/zopper/local/lib/python2.7/site-packages/kombu/pidbox.py", line 265, in _publish_reply
+    **opts
+  File "/home/zopper/zopper-apps/zopper/local/lib/python2.7/site-packages/kombu/messaging.py", line 181, in publish
+    exchange_name, declare,
+  File "/home/zopper/zopper-apps/zopper/local/lib/python2.7/site-packages/kombu/messaging.py", line 194, in _publish
+    [maybe_declare(entity) for entity in declare]
+  File "/home/zopper/zopper-apps/zopper/local/lib/python2.7/site-packages/kombu/messaging.py", line 102, in maybe_declare
+    return maybe_declare(entity, self.channel, retry, **retry_policy)
+  File "/home/zopper/zopper-apps/zopper/local/lib/python2.7/site-packages/kombu/common.py", line 129, in maybe_declare
+    return _maybe_declare(entity, declared, ident, channel, orig)
+  File "/home/zopper/zopper-apps/zopper/local/lib/python2.7/site-packages/kombu/common.py", line 135, in _maybe_declare
+    entity.declare(channel=channel)
+  File "/home/zopper/zopper-apps/zopper/local/lib/python2.7/site-packages/kombu/entity.py", line 185, in declare
+    nowait=nowait, passive=passive,
+  File "/home/zopper/zopper-apps/zopper/local/lib/python2.7/site-packages/amqp/channel.py", line 614, in exchange_declare
+    wait=None if nowait else spec.Exchange.DeclareOk,
+  File "/home/zopper/zopper-apps/zopper/local/lib/python2.7/site-packages/amqp/abstract_channel.py", line 50, in send_method
+    conn.frame_writer(1, self.channel_id, sig, args, content)
+  File "/home/zopper/zopper-apps/zopper/local/lib/python2.7/site-packages/amqp/method_framing.py", line 166, in write_frame
+    write(view[:offset])
+  File "/home/zopper/zopper-apps/zopper/local/lib/python2.7/site-packages/amqp/transport.py", line 275, in write
+    self._write(s)
+  File "/usr/lib/python2.7/socket.py", line 224, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 104] Connection reset by peer
