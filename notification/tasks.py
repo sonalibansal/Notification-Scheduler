@@ -6,55 +6,53 @@ import smtplib
 from celery import Task
 from django.contrib.auth.models import User
 
+from assignment.settings import *
 from notification.models import Notification, UserNotification
 from assignment.celery import app
-
-
 
 class NotificationScheduler(Task):
 
     def __init__(self):
         print "parent class"
 
-    def run(self,user_id,notification_id):
-        print(user_id)
-        print("hello")
+    def notification_status(self,user_id,notification_id):
+
         user=User.objects.get(pk=user_id)
         notification=Notification.objects.get(pk=notification_id)
         usernotification=UserNotification.objects.get(user=user,notification=notification)
         now = datetime.datetime.now()
         subject = notification.header
-        email = 'sonali@zopper.com'
+        email = user.email
         message = notification.content
-        from_email = 'shareadcare@gmail.com'
-        password = 'mirsajsob2017'
+        from_email = EMAIL_HOST
+        print from_email
+        password = EMAIL_PASSWORD
         sendmailobj = app.register_task(SendEmail())
         if usernotification.status=='inactive' :
-            print(" INACTIVE")
-            if now.date()>notification.noti_date:
 
-                status=sendmailobj.delay(notification.header,email,from_email,notification.content,password)
-                usernotification.status = status
+            if now.date()>notification.noti_date:
+                mail=sendmailobj.apply_async(countdown=3,args=[subject,email,from_email,message,password])
+                usernotification.status=mail
                 usernotification.save()
                 print usernotification.status
-            elif now.date()==notification.noti_date and now.strftime("%H:%M:%S")==notification.noti_time:
-                status =sendmailobj.delay(notification.header, email, from_email, notification.content, password)
-                usernotification.status = status
+            elif now.date()==notification.noti_date and now.strftime("%H:%M:%S")>=notification.noti_time.strftime("%H:%M:%S"):
+                mail=sendmailobj.apply_async(countdown=3,args=[subject,email,from_email,message,password])
+                print mail
+                usernotification.status = mail
                 usernotification.save()
-                print usernotification.status
             else:
                 print 'NOTIFICATION NOT SCHEDULED YET'
 
-        elif usernotification.status=='failed':
-            status = sendmailobj.delay(notification.header, email, from_email, notification.content, password)
-            usernotification.status = status
+        elif usernotification.status=='FAILED':
+            mail = sendmailobj.apply_async(countdown=3, args=[subject, email, from_email, message, password])
+            print mail
+            usernotification.status = mail
             usernotification.save()
-            print usernotification.status
 
         else:
-            print "no notifications pending"
+            print "notification already sent successfully"
 
-obj=app.register_task(NotificationScheduler())
+
 
 class SendEmail(NotificationScheduler):
 
@@ -62,24 +60,20 @@ class SendEmail(NotificationScheduler):
         print "child class"
 
 
-    def run(self,subject, to, sender, message, password):
+    def run(self,*args):
+
         try:
-            email_msg = "Subject: {} \n\n{}".format(subject, message)
+            email_msg = "Subject: {} \n\n{}".format(args[0], args[3])
             smtp = smtplib.SMTP_SSL('smtp.gmail.com', 465)
-            smtp.login(sender, password)
-            smtp.sendmail(sender, to, email_msg)
+            smtp.login(args[2], args[4])
+            smtp.sendmail(args[2], args[1], email_msg)
+
             smtp.close()
-            return 'successful'
+            return 'SUCCESSFUL'
         except Exception:
 
-            return 'failed'
+            return 'FAILED'
 
-obj2=app.register_task(SendEmail())
+obj=app.register_task(SendEmail())
 
-'''
-import os
-import django
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'assignment.settings')
-django.setup()
-'''
 

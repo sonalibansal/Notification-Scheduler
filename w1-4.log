@@ -1,0 +1,5 @@
+[2018-07-02 15:07:27,340: WARNING/ForkPoolWorker-4] 2
+[2018-07-02 15:07:27,340: WARNING/ForkPoolWorker-4] hello
+[2018-07-02 15:07:27,349: WARNING/ForkPoolWorker-4] child class
+[2018-07-02 15:07:27,349: WARNING/ForkPoolWorker-4] no notifications pending
+[2018-07-02 15:07:27,356: INFO/ForkPoolWorker-4] Task notification.tasks.NotificationScheduler[d7cb6fa9-4f7d-40b3-b85b-05f9f9842e71] succeeded in 0.0161611240001s: None

@@ -1,9 +1,8 @@
 from .models import Notification,UserNotification
 from rest_framework import serializers
-from rest_framework.response import Response
 from django.contrib.auth.models import User
 
-
+from notification.tasks import SendEmail
 
 class UserSerializer(serializers.ModelSerializer):
 	username = serializers.ReadOnlyField(source='user.username')
@@ -21,10 +20,11 @@ class NotificationSerializer(serializers.ModelSerializer):
 	def create(self, validated_data):
 		user_data=validated_data.pop('user')
 		notification=super(NotificationSerializer,self).create(validated_data)
-		#notification=Notification.objects.create(**validated_data)
 		for u in user_data:
 			user=User.objects.get(pk=u['id'])
 			usernotification=UserNotification.objects.create(notification=notification,user=user)
+			object=SendEmail()
+			object.notification_status(usernotification.user.id,usernotification.notification.id)
 
 		return notification
 

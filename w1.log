@@ -439,3 +439,10 @@ Traceback (most recent call last):
   File "/home/zopper/zopper-apps/zopper/local/lib/python2.7/site-packages/celery/worker/consumer/consumer.py", line 563, in on_task_received
     strategy = strategies[type_]
 KeyError: 'notification.tasks.NotificationScheduler'
+[2018-07-02 15:06:48,783: INFO/MainProcess] Connected to amqp://guest:**@127.0.0.1:5672//
+[2018-07-02 15:06:48,792: INFO/MainProcess] mingle: searching for neighbors
+[2018-07-02 15:06:49,809: INFO/MainProcess] mingle: all alone
+[2018-07-02 15:06:49,827: WARNING/MainProcess] /home/zopper/zopper-apps/zopper/local/lib/python2.7/site-packages/celery/fixups/django.py:200: UserWarning: Using settings.DEBUG leads to a memory leak, never use this setting in production environments!
+  warnings.warn('Using settings.DEBUG leads to a memory leak, never '
+[2018-07-02 15:06:49,828: INFO/MainProcess] w1@LP-156 ready.
+[2018-07-02 15:07:27,338: INFO/MainProcess] Received task: notification.tasks.NotificationScheduler[d7cb6fa9-4f7d-40b3-b85b-05f9f9842e71]  
