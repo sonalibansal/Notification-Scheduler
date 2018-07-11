@@ -8,6 +8,7 @@ system_packages:
   - python-dev
   - libmysqlclient-dev
   - uwsgi-plugin-python
+  - libmysqlclient-dev
 
 
 
