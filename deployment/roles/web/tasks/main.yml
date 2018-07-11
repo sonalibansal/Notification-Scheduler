@@ -18,7 +18,6 @@
 - name: deploy code from repository
   action: git accept_hostkey=yes repo={{ repo_url }} dest={{ project_root }}/{{ project_name }} remote={{ repo_remote }} version={{repo_branch}}
   become: yes
-  force : yes
   tags:
     - setup
     - deploy
