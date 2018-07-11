@@ -42,8 +42,8 @@
     - webt
 
 
-  - name: install python dependencies
-  sudo: yes
+- name: install python dependencies
+  become: yes
   action: pip requirements={{ project_root }}/{{project_name}}/requirements.txt
   tags:
     - setup
