@@ -1,0 +1,48 @@
+---
+
+
+- name: Update cache
+  become: yes
+  apt: update_cache=yes
+
+- name: Install pip
+  apt:
+    name : python-pip
+    state : present
+    update_cache : yes
+  become : yes
+
+- name : Install python development
+  apt:
+    name : python-dev
+    state : present
+    update_cache : yes
+  become : yes
+
+
+ - name : Install nginx
+  apt:
+    name : nginx
+    state : present
+    update_cache : yes
+  become : yes
+
+
+
+- name: check to see if pip is already installed
+  command: "pip --version"
+  become: yes
+  register: pip_is_installed
+  changed_when: false
+
+- name: Install system packages
+  apt: pkg= update_cache=yes state=present
+  become: yes
+  with_items:
+      - "{{ system_packages }}"
+
+- name: Update pip
+  pip: name=pip state=latest
+  become: yes
+
+...

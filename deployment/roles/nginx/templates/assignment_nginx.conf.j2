@@ -1,0 +1,21 @@
+
+client_max_body_size 100M;
+
+server {
+    listen  80;
+    access_log /var/log/nginx/access.log;
+    error_log /var/log/nginx/error.log;
+
+    location / {
+        uwsgi_pass_header verify_session;
+        uwsgi_pass  unix:///tmp/assignment.sock;
+        include    uwsgi_params;
+    }
+
+    location  /static/ {
+       alias  /srv/static/;
+   }
+   location  /media/ {
+       alias  /srv/media/;
+   }
+}

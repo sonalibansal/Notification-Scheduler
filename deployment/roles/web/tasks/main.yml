@@ -1,0 +1,48 @@
+- name: create root project directory
+  file: path=/srv/ owner='sonali' group='sonali' mode=0775 state=directory
+  sudo: yes
+  tags:
+    - setup
+    - web
+    - prepare
+
+- name: changing ownership
+  file: path={{ project_root }} owner='sonali' group='sonali' state=directory recurse=yes
+  sudo: yes
+  tags:
+    - setup
+    - web
+    - deploy
+
+
+- name: deploy code from repository
+  action: git accept_hostkey=yes repo={{ repo_url }} dest={{ project_root }}/{{ project_name }} remote={{ repo_remote }} version={{repo_branch}}
+  tags:
+    - setup
+    - deploy
+    - web
+
+- name: create root project directory
+  file: path={{ project_root }} owner={{ deploy_user }} group={{ deploy_user }} state=directory recurse=yes
+  sudo: yes
+  tags:
+    - setup
+    - web
+    - deploy
+
+
+- name: Fix for pip bug
+  sudo: yes
+  shell: rm -rf /usr/local/lib/python2.7/dist-packages/requests*
+  tags:
+    - setup
+    - deploy
+    - web
+
+- name: install python dependencies
+  sudo: yes
+  action: pip requirements={{ project_root }}/{{project_name}}/requirements.txt
+  tags:
+    - setup
+    - deploy
+    - web

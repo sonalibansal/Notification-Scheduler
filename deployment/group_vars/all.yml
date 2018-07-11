@@ -1,0 +1,6 @@
+project_root: /srv
+project_name: assignment
+repo_url: https://github.com/sonalibansal/Notification-Scheduler.git
+repo_remote: origin
+repo_branch: master
+deploy_user: ubuntu

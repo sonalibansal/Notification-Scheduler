@@ -1,0 +1,10 @@
+[uwsgi]
+vhost           = true
+plugins         = python
+chdir           = {{project_root}}/{{project_name}}/assignment/
+module          = assignment.wsgi
+socket          = /tmp/assignmnet.sock
+master          = true
+enable-threads  = true
+processes       = 20
+threads 		= 2
