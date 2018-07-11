@@ -1,0 +1,25 @@
+[uwsgi]
+vhost           = true
+plugins         = python
+chdir           = {{project_root}}/{{project_name}}/assignment/
+module          = assignment.wsgi
+socket          = /tmp/assignmnet.sock
+master          = true
+enable-threads  = true
+processes       = 20
+threads 		= 2
+
+{% if DEPLOYMENT_TYPE == "PRODUCTION" %}
+listen          = 1024
+{% endif %}
+#max-requests    = 5000
+wsgi-file       = {{project_root}}/{{project_name}}/assignment/wsgi.py
+buffer-size    = 65535
+
+
+
+deployment_type = {{ DEPLOYMENT_TYPE }}
+
+{% for key, value in environment_variables[deployment_type].items() %}
+env             = {{key}}={{value}}
+{% endfor %}
