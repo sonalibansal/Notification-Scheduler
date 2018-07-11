@@ -1,0 +1,16 @@
+- name : Install rabbitmq server
+  apt:
+    name : rabbitmq-server
+    state : present
+    update_cache : yes
+  become : yes
+  tags:
+    - celery
+
+
+
+- name: Install celery
+  pip: name=celery state=latest
+  become: yes
+  tags:
+    - celery

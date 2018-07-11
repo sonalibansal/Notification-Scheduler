@@ -1,13 +1,13 @@
 - name: Install Nginx
-  apt: pkg=nginx state=installed
-  sudo: yes
+  apt: pkg=nginx state=present
+  become: yes
   tags:
     - nginx
 
 
 - name: Remove default Nginx site config
   file: path=/etc/nginx/sites-enabled/default state=absent
-  sudo: yes
+  become: yes
   notify:
     - restart nginx
   tags:
@@ -15,8 +15,8 @@
 
 
 - name: put nginx file in site-enabled
-  template: src=assignment_nginx.conf.j2 dest=/etc/nginx/sites-enabled/accounts_nginx.conf
-  sudo: yes
+  template: src=assignment_nginx.conf.j2 dest=/etc/nginx/sites-enabled/assignment_nginx.conf
+  become: yes
   notify:
     - restart nginx
   tags:

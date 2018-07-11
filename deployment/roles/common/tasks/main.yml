@@ -4,6 +4,8 @@
 - name: Update cache
   become: yes
   apt: update_cache=yes
+  tags:
+    - common
 
 - name: Install pip
   apt:
@@ -11,6 +13,8 @@
     state : present
     update_cache : yes
   become : yes
+  tags:
+    - common
 
 - name : Install python development
   apt:
@@ -18,31 +22,28 @@
     state : present
     update_cache : yes
   become : yes
-
-
- - name : Install nginx
-  apt:
-    name : nginx
-    state : present
-    update_cache : yes
-  become : yes
-
-
+  tags:
+    - common
 
 - name: check to see if pip is already installed
   command: "pip --version"
   become: yes
   register: pip_is_installed
   changed_when: false
+  tags:
+    - common
 
 - name: Install system packages
   apt: pkg= update_cache=yes state=present
   become: yes
   with_items:
       - "{{ system_packages }}"
+  tags:
+    - common
 
 - name: Update pip
   pip: name=pip state=latest
   become: yes
-
+  tags:
+    - common
 ...

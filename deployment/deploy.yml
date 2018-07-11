@@ -4,9 +4,10 @@
   hosts: server
 
   roles:
-    - cores
-    - django
+    - common
+    - web
     - nginx
     - uwsgi
+    - celery
 
 
