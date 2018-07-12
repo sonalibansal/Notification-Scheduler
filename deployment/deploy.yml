@@ -10,4 +10,8 @@
     - uwsgi
     - celery
 
+...
+
+
+
 
