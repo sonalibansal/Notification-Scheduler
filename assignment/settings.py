@@ -71,9 +71,9 @@ WSGI_APPLICATION = 'assignment.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'myassignment',
-        'USER': 'sonali',
-        'PASSWORD': 'sonali',
+        'NAME':os.environ['mysql_db'],
+        'USER':os.environ['mysql_user'],
+        'PASSWORD':os.environ['mysql_pass'],
         'HOST': 'localhost',
         'PORT': '',
     }
