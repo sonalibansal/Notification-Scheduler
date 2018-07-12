@@ -1,9 +1,9 @@
 [uwsgi]
 vhost           = true
 plugins         = python
-chdir           = {{project_root}}/{{project_name}}/assignment/
+chdir           = {{project_root}}/{{project_name}}
 module          = assignment.wsgi
-socket          = /tmp/assignmnet.sock
+socket          = /tmp/assignment.sock
 master          = true
 enable-threads  = true
 processes       = 20
