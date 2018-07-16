@@ -31,4 +31,4 @@ class NotificationSerializer(serializers.ModelSerializer):
 class UserNotificationSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = UserNotification
-		fields=('user','notification','status')
+		fields=('user','notification')

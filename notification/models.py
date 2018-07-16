@@ -18,7 +18,7 @@ class UserNotification(models.Model):
 
 	user=models.ForeignKey(User)
 	notification=models.ForeignKey(Notification)
-	status=models.CharField(max_length=12,default='inactive')
+
 
 
 
